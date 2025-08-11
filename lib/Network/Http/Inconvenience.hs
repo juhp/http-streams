@@ -276,7 +276,7 @@ baselineContextSSL = withOpenSSL $ do
     fedora <- doesDirectoryExist "/etc/pki/tls"
     if fedora
         then do
-            SSL.contextSetCAFile ctx "/etc/pki/tls/certs/ca-bundle.crt"
+            SSL.contextSetCAFile ctx "/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem"
         else do
             SSL.contextSetCADirectory ctx "/etc/ssl/certs"
     SSL.contextSetVerificationMode ctx $ SSL.VerifyPeer True True Nothing
